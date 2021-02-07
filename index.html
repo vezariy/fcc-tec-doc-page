@@ -7,67 +7,205 @@
     <title>Documentation Page</title>
 </head>
 <body>                  
-<main id="main-doc">
-    <nav id="navbar"> 
-        <header> Topic of Tec Doc </header>
-        <a class="nav-link" href="#Text_1" >Text 1</a> <br>
-        <a class="nav-link" href="#Text_2" >Text 2</a> <br>
-            <a class="nav-link" href="#Text_3" >Text 3</a> <br>
-            <a class="nav-link" href="#Text_4" >Text 4</a> <br>
-                <a class="nav-link" href="#Text_5" >Text 5</a> 
-    </nav>
-    <section id="Text_1" class="main-section">
-        <header>
-        <h2>Text 1</h2>
-        <p></p>
-        <code> </code>
-        <p></p>
-        <p></p>
-        </header>
-    </section>
-    <section id="Text_2" class="main-section">
-        <header>
-        <h2>Text 2</h2>
-        <p></p>
-        <code> </code>
-        <p></p>
-        <p></p>
-        </header>
-    </section>
-    <section id="Text_3" class="main-section">
-        <header>
-        <h2>Text 3</h2>
-        <p></p>
-        <code> </code>
-        <ul>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-        </ul>
-        <p></p>
-        <p></p>
-        </header>
-    </section>
-    <section id="Text_4" class="main-section">
-        <header>
-        <h2>Text 4</h2>
-        <p></p>
-        <code> </code>
-        <p></p>
-        <p></p>
-        </header>
-    </section>
-    <section id="Text_5" class="main-section">
-        <header>
-        <h2>Text 5</h2>
-        <p></p>
-        <code> </code>
-        <p></p>
-        <p></p>
-        </header>
-    </section>
-    </main>
+  <nav id="navbar"> 
+    <header> Topic of Tec Doc </header>
+  <ul class="nav-list">
+    <li>   <a class="nav-link" href="#Object_methods,_“this”" >Object methods, “this”</a> </li>
+    <li>    <a class="nav-link" href="#Method_examples" >Method examples</a> </li>
+    <li>      <a class="nav-link" href="#Method_shorthand">Method shorthand</a> </li>
+    <li>       <a class="nav-link" href="#“this”_in_methods" >“this” in methods</a> </li>
+    <li>         <a class="nav-link" href="#“this”_is_not_bound" >“this” is not bound</a> </li>
+    <li>  <a class="nav-link" href="#Arrow_functions_have_no_“this”" >Arrow functions have no “this”</a> </li>
+    <li>  <a class="nav-link" href="#Summary" >Summary</a> </li>
+    </ul>
+  </nav>
+  <main id="main-doc">
+  <section id="Object_methods,_“this”" class="main-section">
+    <header>
+      <h2>Object methods, “this”</h2>  </header>
+    <!-- Need to add articles???? -->
+      <p>Objects are usually created to represent entities of the real world, like users, orders and so on:</p>
+    <pre class="pre-class">
+        <code class="code-class"> let user = {
+          name: "John",
+          age: 30
+      }; </code> </pre>
+    <p>And, in the real world, a user can act: select something from the shopping cart, login, logout etc.</p>
+    <p>Actions are represented in JavaScript by functions in properties.</p>
+
+  </section>
+  <section id="Method_examples" class="main-section">
+    <header>
+      <h2>Method examples</h2></header>
+      <p>For a start, let’s teach the user to say hello:</p>
+    <pre class="pre-class">   <code class="code-class"> let user = {
+        name: "John",
+        age: 30
+    };
+    
+    user.sayHi = function() {
+    alert("Hello!");
+    };
+    
+    user.sayHi(); </code> </pre>
+    <p>Here we’ve just used a Function Expression to create a function and assign it to the property user.sayHi of the object.</p>
+    <p>Then we can call it as user.sayHi(). The user can now speak!</p>
+    <p>A function that is a property of an object is called its method.</p>
+    <p>So, here we’ve got a method sayHi of the object user.</p>
+    <p>Of course, we could use a pre-declared function as a method, like this:</p>
+    <pre class="pre-class">   <code class="code-class">let user = {
+        // ...
+      };
+      
+      // first, declare
+      function sayHi() {
+        alert("Hello!");
+      };
+      
+      // then add as a method
+      user.sayHi = sayHi;
+      
+      user.sayHi();</code> </pre>
+    
+  </section>
+  <section id="Method_shorthand" class="main-section">
+    <header>
+      <h2>Method shorthand</h2> </header>
+      <p>There exists a shorter syntax for methods in an object literal:
+
+    </p>
+    <pre class="pre-class">   <code class="code-class">// these objects do the same
+
+        user = {
+          sayHi: function() {
+            alert("Hello");
+          }
+        };
+        
+        // method shorthand looks better, right?
+        user = {
+          sayHi() { // same as "sayHi: function()"
+            alert("Hello");
+          }
+        }; </code> </pre>
+        <p>As demonstrated, we can omit "function" and just write sayHi().</p>
+        <p>To tell the truth, the notations are not fully identical. There are subtle differences related to object inheritance (to be covered later), but for now they do not matter. In almost all cases the shorter syntax is preferred.</p>
+    
+  </section>
+  <section id="“this”_in_methods" class="main-section">
+    <header>
+      <h2>“this” in methods</h2>  </header>
+      <p>It’s common that an object method needs to access the information stored in the object to do its job. </p>
+      <p>For instance, the code inside user.sayHi() may need the name of the user.        </p>
+  <strong>To access the object, a method can use the this keyword.
+
+</strong>
+<p>The value of this is the object “before dot”, the one used to call the method. </p>
+<p>For instance:</p>  
+<pre class="pre-class">  <code class="code-class">let user = {
+    name: "John",
+    age: 30,
+  
+    sayHi() {
+      // "this" is the "current object"
+      alert(this.name);
+    }
+  
+  };
+  
+  user.sayHi(); // John </code> </pre>
+    <p>Here during the execution of user.sayHi(), the value of this will be user.</p>
+    <p>Technically, it’s also possible to access the object without this, by referencing it via the outer variable:</p>
+    <pre class="pre-class">     <code class="code-class">let user = {
+        name: "John",
+        age: 30,
+      
+        sayHi() {
+          alert(user.name); // "user" instead of "this"
+        }
+      
+      };</code> </pre>
+      <p>…But such code is unreliable. If we decide to copy user to another variable, e.g. admin = user and overwrite user with something else, then it will access the wrong object.</p>
+      <p>That’s demonstrated below: </p>
+      <pre class="pre-class">     <code class="code-class">let user = {
+        name: "John",
+        age: 30,
+      
+        sayHi() {
+          alert( user.name ); // leads to an error
+        }
+      
+      };
+      
+      
+      let admin = user;
+      user = null; // overwrite to make things obvious
+      
+      admin.sayHi(); // TypeError: Cannot read property 'name' of null</code> </pre>
+      <p>If we used this.name instead of user.name inside the alert, then the code would work.</p>
+  </section>
+  <section id="“this”_is_not_bound" class="main-section">
+    <header>
+      <h2>“this” is not bound</h2></header>
+      <p>In JavaScript, keyword this behaves unlike most other programming languages. It can be used in any function, even if it’s not a method of an object.</p>
+      <p>There’s no syntax error in the following example:</p>
+      <pre class="pre-class">   <code class="code-class"> function sayHi() {
+      alert( this.name );
+      }</code> </pre>
+      <p>The value of this is evaluated during the run-time, depending on the context.</p>
+      <p>For instance, here the same function is assigned to two different objects and has different “this” in the calls:        </p>
+      <pre class="pre-class">   <code class="code-class">let user = { name: "John" };
+  let admin = { name: "Admin" };
+  
+  function sayHi() {
+    alert( this.name );
+  }
+  
+  // use the same function in two objects
+  user.f = sayHi;
+  admin.f = sayHi;
+  
+  // these calls have different this
+  // "this" inside the function is the object "before the dot"
+  user.f(); // John  (this == user)
+  admin.f(); // Admin  (this == admin)
+  
+  admin['f'](); // Admin (dot or square brackets access the method – doesn't matter)</code> </pre>
+  <p>The rule is simple: if obj.f() is called, then this is obj during the call of f. So it’s either user or admin in the example above.</p>
+    
+  </section>
+  <section id="Arrow_functions_have_no_“this”" class="main-section">
+    <header>
+      <h2>Arrow functions have no “this”</h2>  </header>
+  <p>Arrow functions are special: they don’t have their “own” this. If we reference this from such a function, it’s taken from the outer “normal” function.</p>
+    <p>For instance, here arrow() uses this from the outer user.sayHi() method:</p>
+    <pre class="pre-class">   <code class="code-class">let user = {
+      firstName: "Ilya",
+      sayHi() {
+        let arrow = () => alert(this.firstName);
+        arrow();
+      }
+    };
+    
+    user.sayHi();</code> </pre>
+    <p>That’s a special feature of arrow functions, it’s useful when we actually do not want to have a separate this, but rather to take it from the outer context. Later in the chapter Arrow functions revisited we’ll go more deeply into arrow functions.</p>
+  </section>
+    <section id="Summary" class="main-section">
+    <header>
+      <h2>Summary</h2>  </header>
+  <ul>
+        <li>Functions that are stored in object properties are called “methods”.</li>
+        <li>Methods allow objects to “act” like object.doSomething().</li>
+        <li>Methods can reference the object as this.</li>
+    </ul>
+    <p>The value of this is defined at run-time.</p>
+    <ul>
+      <li>When a function is declared, it may use this, but that this has no value until the function is called.</li>
+      <li>A function can be copied between objects.</li>
+      <li>When a function is called in the “method” syntax: object.method(), the value of this during the call is object.</li>
+    </ul>
+    <p>Please note that arrow functions are special: they have no this. When this is accessed inside an arrow function, it is taken from outside.</p>
+  </section>
+</main>
 </body>
 </html>
