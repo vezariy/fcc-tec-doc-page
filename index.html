@@ -4,29 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/main.css">
+    <!-- <link rel="stylesheet" href="css/prism.css">
+    <link href="https://myCDN.com/prism@v1.x/themes/prism.css" rel="stylesheet" /> -->
     <title>Documentation Page</title>
 </head>
 <body>                  
   <nav id="navbar"> 
     <header> Topic of Tec Doc </header>
-  <ul class="nav-list">
-    <li>   <a class="nav-link" href="#Object_methods,_“this”" >Object methods, “this”</a> </li>
-    <li>    <a class="nav-link" href="#Method_examples" >Method examples</a> </li>
-    <li>      <a class="nav-link" href="#Method_shorthand">Method shorthand</a> </li>
-    <li>       <a class="nav-link" href="#“this”_in_methods" >“this” in methods</a> </li>
-    <li>         <a class="nav-link" href="#“this”_is_not_bound" >“this” is not bound</a> </li>
-    <li>  <a class="nav-link" href="#Arrow_functions_have_no_“this”" >Arrow functions have no “this”</a> </li>
-    <li>  <a class="nav-link" href="#Summary" >Summary</a> </li>
-    </ul>
+      <ul class="nav-list">
+        <a class="nav-link" href="#Object_methods,_“this”" > <li>Object methods, “this”</li></a>
+        <a class="nav-link" href="#Method_examples" ><li>Method examples</li></a>
+        <a class="nav-link" href="#Method_shorthand"> <li>Method shorthand</li></a>
+        <a class="nav-link" href="#“this”_in_methods" > <li>“this” in methods</li></a>
+        <a class="nav-link" href="#“this”_is_not_bound" > <li>“this” is not bound</li></a>
+        <a class="nav-link" href="#Arrow_functions_have_no_“this”" > <li>Arrow functions have no “this”</li></a>
+        <a class="nav-link" href="#Summary"><li>Summary</li></a>
+      </ul>
   </nav>
   <main id="main-doc">
   <section id="Object_methods,_“this”" class="main-section">
     <header>
-      <h2>Object methods, “this”</h2>  </header>
+      <h1>Object methods, “this”</h1>  </header>
     <!-- Need to add articles???? -->
+    <img src="images/jsimage.jpeg" alt="THIS image">
       <p>Objects are usually created to represent entities of the real world, like users, orders and so on:</p>
-    <pre class="pre-class">
-        <code class="code-class"> let user = {
+    <pre class="line-numbers">
+        <code class="language-css"> let user = {
           name: "John",
           age: 30
       }; </code> </pre>
@@ -207,5 +210,9 @@
     <p>Please note that arrow functions are special: they have no this. When this is accessed inside an arrow function, it is taken from outside.</p>
   </section>
 </main>
+<!-- <footer>
+  <p class="footer"> Layout by vezaliy</p>
+</footer> -->
+
 </body>
 </html>

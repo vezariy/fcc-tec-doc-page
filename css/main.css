@@ -7,7 +7,7 @@
 }
 
 body {
-  background-color: brown;
+  background-color: lightblue;
   text-align: center;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -16,10 +16,23 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
+  font-size: auto;
+}
+
+@media (max-width: 768px) {
+  body body {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+  body #navbar {
+    background-color: yellow;
+  }
 }
 
 #navbar {
-  background-color: #565656;
+  background-color: #3a9fc0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -32,25 +45,44 @@ body {
   height: 100vh;
   width: 30vw;
   min-width: 250px;
-  border-right: 10px solid black;
+  border-right: 5px solid black;
 }
 
 #navbar header {
-  background-color: yellowgreen;
+  background-color: #2e7e99;
   font-size: 30px;
 }
 
 #navbar .nav-list {
   text-align: center;
   background-color: white;
-  padding: 10px;
+  margin: 3px;
   word-spacing: 5px;
-  font-size: 30px;
+  font-size: 25px;
+}
+
+#navbar ul {
+  overflow: auto;
 }
 
 #navbar a {
-  background-color: yellow;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#navbar li {
+  background-color: #235e71;
+  padding: 5px;
   width: 100%;
+  color: white;
+  border-top: 3px solid black;
+  list-style: none;
+  position: relative;
+}
+
+#navbar li:hover {
+  background-color: #d4ebf2;
+  color: black;
 }
 
 #main-doc {
@@ -62,9 +94,51 @@ body {
       -ms-flex-direction: column;
           flex-direction: column;
   margin-left: 30vw;
+  margin-bottom: 60px;
+  padding: 0 20px 20px 20px;
+}
+
+#main-doc img {
+  min-width: 400px;
+  height: 300px;
+}
+
+#main-doc header {
+  color: #fff;
+  background-color: #202da7;
+  padding: 5px;
+  margin: 10px 0;
+}
+
+#main-doc p {
+  text-align: justify;
+  padding: 10px;
+}
+
+#main-doc p::first-letter {
+  font-size: 130%;
+  font-style: bold;
+}
+
+#main-doc h1 {
+  font-size: 30px;
+}
+
+#main-doc h2 {
+  font-size: 25px;
 }
 
 #main-doc code {
-  background-color: white;
+  display: block;
+  text-align: left;
+  white-space: pre-line;
+  position: relative;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 2;
+  background-color: #f7f7f7d8;
+  padding: 10px;
+  margin: 10px;
+  border-left: 3px solid #7b7b7b;
 }
 /*# sourceMappingURL=main.css.map */
